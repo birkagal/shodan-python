@@ -397,7 +397,7 @@ class Shodan:
             raise APIError('Unable to parse JSON response', data.status_code)
 
         # Raise an exception if an error occurred
-        if type(parsed_data) == dict and 'error' in parsed_data:
+        if isinstance(parsed_data, dict) and 'error' in parsed_data:
             raise APIError(parsed_data['error'], data.status_code)
 
         # Return the data
